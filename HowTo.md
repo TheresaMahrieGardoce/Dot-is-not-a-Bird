@@ -33,13 +33,14 @@
 ## Recording a Video Demo
 
 1. Run your executable **MyPyGame.exe**
-2. Use a screen recorder. Install [TechSmith SnagIt for Chrome] (http://www.techsmith.com/snagit-google-chrome.html) | [TechSmith Snagit (Extension)] (https://chrome.google.com/webstore/detail/techsmith-snagit-extensio/annopcfmbiofommjmcmcfmhklhgbhkce) | [TechSmith Snagit] (https://chrome.google.com/webstore/detail/techsmith-snagit/fcnghgbgmemnlbckdipnmelbanpgneik)
-3. Once installed on your Chrome Browser, click its icon ![snagit] (https://lh4.googleusercontent.com/gdWhxJhDvmnEztRF_5DPSmNRZREhFyPIWzSD2sqm_ajAXbq_JIxGAI6OxDI1tlSE3tO9Fyg7=s50-h50-e365-rw) to start recording your screen.
-4. On the right side, choose **Screen**, then select the ```MyPyGame.exe``` window
-5. Start playing the game then click the **Stop Sharing** button.
-6. Test and play the recorded video. And once you're satisfied, click on the lower rightmost and choose **Send to Youtube**.
-7. If you already have a Google account, then use that to signup for a Youtube account.
-8. Your video will be uploaded. Input the necessary fields as needed *(title, desc, etc)*.
+2. Use a screen recorder of your choice, or
+3. Install [TechSmith SnagIt for Chrome] (http://www.techsmith.com/snagit-google-chrome.html) | [TechSmith Snagit (Extension)] (https://chrome.google.com/webstore/detail/techsmith-snagit-extensio/annopcfmbiofommjmcmcfmhklhgbhkce) | [TechSmith Snagit] (https://chrome.google.com/webstore/detail/techsmith-snagit/fcnghgbgmemnlbckdipnmelbanpgneik)
+4. Once installed on your Chrome Browser, click its icon ![snagit] (https://lh4.googleusercontent.com/gdWhxJhDvmnEztRF_5DPSmNRZREhFyPIWzSD2sqm_ajAXbq_JIxGAI6OxDI1tlSE3tO9Fyg7=s50-h50-e365-rw) to start recording your screen.
+5. On the right side, choose **Screen**, then select the ```MyPyGame.exe``` window
+6. Start playing the game then click the **Stop Sharing** button.
+7. Test and play the recorded video. And once you're satisfied, click on the lower rightmost and choose **Send to Youtube**.
+8. If you already have a Google account, then use that to signup for a Youtube account.
+9. Your video will be uploaded. Input the necessary fields as needed *(title, desc, etc)*.
 
 ## Github for Windows
 *(The basic purpose of Git is to sync your local and online copy of your project and all its assets)*
