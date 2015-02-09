@@ -1,9 +1,9 @@
 ## Python for Windows
 
-1. Install [Python 2.7.8] (https://www.python.org/downloads/release/python-278/)
-2. Install [PyGame for Python 2.7] (http://pygame.org/ftp/pygame-1.9.1.win32-py2.7.msi)
-3. Install [Py2Exe for Python 2.7] (http://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.7.exe/download)
-4. Copy the Python script from [here[ (http://www.pygame.org/wiki/Pygame2exe) to make your PyGame an executable Windows app (.exe) 
+1. Install Python 2.7.8 (https://www.python.org/downloads/release/python-278/)
+2. Install PyGame for Python 2.7 (http://pygame.org/ftp/pygame-1.9.1.win32-py2.7.msi)
+3. Install Py2Exe for Python 2.7 (http://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.7.exe/download)
+4. Copy the Python script from (http://www.pygame.org/wiki/Pygame2exe) to make your PyGame an executable Windows app (.exe) 
 5. Modify the Python script
 ```python
   class BuildExe:
