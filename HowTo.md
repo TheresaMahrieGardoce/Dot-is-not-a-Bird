@@ -1,4 +1,5 @@
 ## Python for Windows
+
 1. Install [Python 2.7.8] (https://www.python.org/downloads/release/python-278/)
 2. Install [PyGame for Python 2.7] (http://pygame.org/ftp/pygame-1.9.1.win32-py2.7.msi)
 3. Install [Py2Exe for Python 2.7] (http://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.7.exe/download)
@@ -30,16 +31,17 @@
   Create a zip file of your ```dist``` folder and rename it as **MyPyGame.zip** or whatever you named your PyGame.
 
 ## Recording a Video Demo
-1. Run your executable MyPyGame.exe
-2. Use a screen recorder. Install [TechSmith SnagIt for Chrome] (http://www.techsmith.com/snagit-google-chrome.html)
-3. Once installed on your Chrome Browser, click its icon [blue square with 'S'] to start recording your screen.
-4. On the right side, choose "Screen", then select the MyPyGame.exe window
-5. Start playing the game then click the "Stop Sharing" button.
-6. Test the recorded video. And once you're satisfied, click on the lower right and choose "Send to Youtube".
-7. If you already have a Google account, then use that to signup for a Youtube account.
-8. Your video will be uploaded. Input the necessary fields as needed (title, desc, etc).
 
-# Github for Windows
+1. Run your executable **MyPyGame.exe**
+2. Use a screen recorder. Install [TechSmith SnagIt for Chrome] (http://www.techsmith.com/snagit-google-chrome.html)
+3. Once installed on your Chrome Browser, click its icon *[blue square with 'S']* to start recording your screen.
+4. On the right side, choose **Screen**, then select the ```MyPyGame.exe``` window
+5. Start playing the game then click the **Stop Sharing** button.
+6. Test and play the recorded video. And once you're satisfied, click on the lower rightmost and choose **Send to Youtube**.
+7. If you already have a Google account, then use that to signup for a Youtube account.
+8. Your video will be uploaded. Input the necessary fields as needed *(title, desc, etc)*.
+
+## Github for Windows
 *(The basic purpose of Git is to sync your local and online copy of your project and all its assets)*
 
 1. Login or Signup on [Github.com] (http://github.com)
@@ -59,7 +61,7 @@
 ```html
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR-YOUTUBE-VIDEO-ID" frameborder="0" allowfullscreen></iframe>
 ```
-15. Go to [(https://developers.facebook.com/docs/plugins/like-button)]
+15. Go to (https://developers.facebook.com/docs/plugins/like-button)
 16. Edit the **URL to Like** with your project's github page. Something like: ```http://yourname.github.io/MyPyGame```
 17. Keep the **Layout** set to *Standard*, and **Action Type** is set to *Like*
 18. Click **Get the Code** and choose **IFRAME**
@@ -75,3 +77,4 @@
 ```html
 <a href="https://github.com/yourname/MyPyGame/releases/download/1/MyPyGame.zip">Download App</a>
 ```
+# Good luck COMPROG! PyGame pa!
