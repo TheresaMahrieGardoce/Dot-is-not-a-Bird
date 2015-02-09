@@ -5,21 +5,15 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/-stylesheet.css" media="screen">
   <link rel="stylesheet" href="stylesheets/pygment_trac.css">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/script.js"></script>
-
   <title>Dot is not a Bird</title>
   <meta name="description" content="Just a little PyGame">
-
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
 </head>
-
 <body>
-
   <div class="wrapper">
     <header>
       <h1 class="title">Dot is not a Bird</h1>
@@ -42,215 +36,15 @@
         <span class="blc"></span><span class="trc"></span>
         </div>
         <article class="markdown-body">
-        
           <h2><a id="youtube-demo" class="anchor" href="#youtube-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Youtube Demo</h2>
           <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/f99vKPgIEow" frameborder="0" allowfullscreen></iframe></p>
           <p><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Farrowbrave.github.io%2FDot-is-not-a-Bird&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe></p>
-          
-          <h2>Code</h2>
-<pre>
-<code class="lang-python">
-__author__ = <span class="hljs-string">'Renaldo Valente'</span>
-
-<span class="hljs-keyword">import</span> random
-<span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint
-
-<span class="hljs-keyword">import</span> sys
-<span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> sleep
-
-<span class="hljs-keyword">import</span> pygame
-<span class="hljs-keyword">from</span> pygame.locals <span class="hljs-keyword">import</span> *
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Player</span>:</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
-        self.size = <span class="hljs-number">10</span>
-        self.x = screenWidth / <span class="hljs-number">2</span>
-        self.y = screenHeight / <span class="hljs-number">3</span>
-        self.rectangle = Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, self.size, self.size)
-        self.rectangle.center = (self.x, self.y)
-        self.upSpeed = <span class="hljs-number">0</span>
-        self.gravity = <span class="hljs-number">.4</span>
-        self.downSpeed = <span class="hljs-number">10</span>
-        self.jumpSpeed = <span class="hljs-number">6.3</span>
-        self.score = <span class="hljs-number">0</span>
-        self.isAlive = <span class="hljs-keyword">True</span>
-        self.time = <span class="hljs-number">0</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">move</span><span class="hljs-params">(self)</span>:</span>
-        self.upSpeed -= self.gravity
-        <span class="hljs-keyword">if</span> abs(self.upSpeed) &gt;= self.downSpeed:
-            self.upSpeed =- self.downSpeed
-        self.rectangle.y -= self.upSpeed
-        <span class="hljs-keyword">if</span> self.time != <span class="hljs-number">0</span>:
-            self.time += <span class="hljs-number">1</span>
-            <span class="hljs-keyword">if</span> self.time &gt;= <span class="hljs-number">6</span>:
-                self.time = <span class="hljs-number">0</span>
-        <span class="hljs-keyword">if</span> self.rectangle.top &gt; screenHeight <span class="hljs-keyword">or</span> self.rectangle.top &lt; <span class="hljs-number">0</span>:
-            sounds[<span class="hljs-string">'hit'</span>].play()
-            self.isAlive = <span class="hljs-keyword">False</span>
-            sounds[<span class="hljs-string">'die'</span>].play()
-            <span class="hljs-keyword">return</span>
-        <span class="hljs-keyword">for</span> dot <span class="hljs-keyword">in</span> obstacles:
-            <span class="hljs-keyword">if</span> self.rectangle.colliderect(dot.rectangle1) <span class="hljs-keyword">or</span> self.rectangle.colliderect(dot.rectangle2):
-                sounds[<span class="hljs-string">'hit'</span>].play()
-                self.isAlive = <span class="hljs-keyword">False</span>
-                sounds[<span class="hljs-string">'die'</span>].play()                
-                randTaunt = random.randint(<span class="hljs-number">0</span>, len(taunt) - <span class="hljs-number">1</span>)
-                msgSurfaceObj = fontObj.render(taunt[randTaunt], <span class="hljs-keyword">False</span>, white)
-                msgRectObj = msgSurfaceObj.get_rect()
-                msgRectObj.center = (screenWidth / <span class="hljs-number">2</span>, <span class="hljs-number">120</span>)
-                windowSurfaceObj.blit(msgSurfaceObj, msgRectObj)
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">startJump</span><span class="hljs-params">(self)</span>:</span>
-        <span class="hljs-keyword">if</span> self.time == <span class="hljs-number">0</span>:
-            self.upSpeed = self.jumpSpeed
-            self.time += <span class="hljs-number">1</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getRect</span><span class="hljs-params">(self)</span>:</span>
-        <span class="hljs-keyword">return</span> (self.rectangle.x, self.rectangle.y, self.rectangle.width, self.rectangle.height)
-
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Obstacles</span>:</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
-        self.notPassed = <span class="hljs-keyword">True</span>
-        self.x = screenWidth
-        self.width = <span class="hljs-number">5</span>
-        self.gapSize = <span class="hljs-number">50</span>
-        self.y = randint(screenHeight * <span class="hljs-number">2</span> // <span class="hljs-number">7</span>, screenHeight * <span class="hljs-number">5</span> // <span class="hljs-number">7</span>)
-        self.rectangle1 = Rect(self.x, <span class="hljs-number">0</span>, self.width, self.y)
-        self.rectangle2 = Rect(self.x, self.y + self.gapSize, self.width, screenHeight - self.gapSize - self.y)
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">move</span><span class="hljs-params">(self)</span>:</span>
-        self.rectangle1.x -= <span class="hljs-number">2</span>
-        self.rectangle2.x -= <span class="hljs-number">2</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getRect</span><span class="hljs-params">(self)</span>:</span>
-        <span class="hljs-keyword">return</span> [(self.rectangle1.x, self.rectangle1.y, self.rectangle1.width, self.rectangle1.height),
-                (self.rectangle2.x, self.rectangle2.y, self.rectangle2.width, self.rectangle2.height)]
-
-pygame.init()
-fpsClock = pygame.time.Clock()
-screenWidth = <span class="hljs-number">600</span>
-screenHeight = <span class="hljs-number">300</span>
-
-sounds = {}
-sounds[<span class="hljs-string">'die'</span>] = pygame.mixer.Sound(<span class="hljs-string">'assets/wav/die.wav'</span>)
-sounds[<span class="hljs-string">'hit'</span>] = pygame.mixer.Sound(<span class="hljs-string">'assets/wav/hit.wav'</span>)
-sounds[<span class="hljs-string">'point'</span>] = pygame.mixer.Sound(<span class="hljs-string">'assets/wav/point.wav'</span>)
-sounds[<span class="hljs-string">'wing'</span>] = pygame.mixer.Sound(<span class="hljs-string">'assets/wav/wing.wav'</span>)
-
-windowSurfaceObj = pygame.display.set_mode((screenWidth, screenHeight))
-pygame.display.set_caption(<span class="hljs-string">'Python Game by Renaldo Valente'</span>)
-fontObj = pygame.font.Font(<span class="hljs-string">'assets/ttf/04B_19__.ttf'</span>, <span class="hljs-number">30</span>)
-
-taunt = (
-        <span class="hljs-string">"Todo na 'yun?"</span>,
-        <span class="hljs-string">"Seryoso?"</span>,
-        <span class="hljs-string">"Wahahaha, talo!"</span>,
-        <span class="hljs-string">"Wala ito. Puro lang porma."</span>,
-        <span class="hljs-string">"Ano, kaya pa?"</span>,
-        <span class="hljs-string">"Kanina ka pa ah"</span>,
-        <span class="hljs-string">"Yan score mo? edi Wow!"</span>,
-        <span class="hljs-string">"Boom, Panes!"</span>,
-        <span class="hljs-string">"Palakpakan!"</span>,
-        <span class="hljs-string">"Akala mo Flappy Bird?"</span>,
-        <span class="hljs-string">"Sapul sa mukha"</span>,
-        <span class="hljs-string">"Try and Fly til you die?"</span>,
-        <span class="hljs-string">"Concentrate"</span>,
-        <span class="hljs-string">"Focus"</span>,
-        <span class="hljs-string">"Isa pa?"</span>,
-        <span class="hljs-string">"Ngumiti ka naman"</span>,
-        <span class="hljs-string">"Psst, pwede huminga"</span>,
-        <span class="hljs-string">"Better than Flappy Bird"</span>,
-        <span class="hljs-string">"I'm not a bird"</span>,
-        <span class="hljs-string">"Better than Toper"</span>,
-        <span class="hljs-string">"Bigyan ng jacket"</span>,
-        <span class="hljs-string">"Nakita ko yun, haha!"</span>,
-        <span class="hljs-string">"Yabang!"</span>,
-        <span class="hljs-string">"Kaya yan, tiwala lang"</span>,
-        <span class="hljs-string">"Magaling pa si Toper"</span>,
-    )
-
-white = pygame.Color(<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>)
-black = pygame.Color(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
-red = pygame.Color(<span class="hljs-number">255</span>,<span class="hljs-number">51</span>,<span class="hljs-number">102</span>)
-green = pygame.Color(<span class="hljs-number">51</span>,<span class="hljs-number">204</span>,<span class="hljs-number">102</span>)
-blue = pygame.Color(<span class="hljs-number">51</span>,<span class="hljs-number">204</span>,<span class="hljs-number">255</span>)
-yellow = pygame.Color(<span class="hljs-number">255</span>,<span class="hljs-number">204</span>,<span class="hljs-number">102</span>)
-
-<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
-
-    obstacles = []
-    started = <span class="hljs-keyword">False</span>
-    spawnCount = <span class="hljs-number">10</span>
-    player = Player()
-    pygame.event.clear()
-
-    <span class="hljs-keyword">while</span> player.isAlive:
-        windowSurfaceObj.fill(yellow)
-
-        <span class="hljs-keyword">if</span> started:
-
-            <span class="hljs-keyword">if</span> spawnCount &gt;= <span class="hljs-number">80</span>:
-                spawnCount = <span class="hljs-number">0</span>
-                obstacles.append(Obstacles())
-            spawnCount += <span class="hljs-number">1</span>
-
-            player.move()
-            pygame.draw.rect(windowSurfaceObj, red, player.getRect())
-            <span class="hljs-keyword">for</span> dot <span class="hljs-keyword">in</span> obstacles:
-                dot.move()
-                <span class="hljs-keyword">if</span> dot.rectangle1.right &lt; <span class="hljs-number">0</span>:
-                    <span class="hljs-keyword">if</span> dot <span class="hljs-keyword">in</span> obstacles:
-                        obstacles.remove(dot)
-                    <span class="hljs-keyword">continue</span>
-                <span class="hljs-keyword">if</span> dot.notPassed <span class="hljs-keyword">and</span> dot.rectangle1.centerx &lt;= player.rectangle.x:
-                    dot.notPassed = <span class="hljs-keyword">False</span>
-                    player.score += <span class="hljs-number">1</span>
-                    sounds[<span class="hljs-string">'point'</span>].play()
-                pygame.draw.rect(windowSurfaceObj, white, dot.getRect()[<span class="hljs-number">0</span>])
-                pygame.draw.rect(windowSurfaceObj, white, dot.getRect()[<span class="hljs-number">1</span>])
-            msgSurfaceObj = fontObj.render(str(player.score), <span class="hljs-keyword">False</span>, red)
-            msgRectObj = msgSurfaceObj.get_rect()
-            msgRectObj.center = (screenWidth / <span class="hljs-number">2</span>, <span class="hljs-number">30</span>)
-            windowSurfaceObj.blit(msgSurfaceObj, msgRectObj)
-        <span class="hljs-keyword">else</span>:
-            pygame.draw.rect(windowSurfaceObj, red, player.getRect())
-            msgSurfaceObj = fontObj.render(<span class="hljs-string">'Dot is not a Bird'</span>, <span class="hljs-keyword">False</span>, red)
-            msgRectObj = msgSurfaceObj.get_rect()
-            msgRectObj.center = (screenWidth / <span class="hljs-number">2</span>, screenHeight / <span class="hljs-number">2</span>)
-            windowSurfaceObj.blit(msgSurfaceObj, msgRectObj)
-
-        <span class="hljs-keyword">for</span> event <span class="hljs-keyword">in</span> pygame.event.get():
-            <span class="hljs-keyword">if</span> event.type == QUIT <span class="hljs-keyword">or</span> (event.type == KEYDOWN <span class="hljs-keyword">and</span> event.key == K_ESCAPE):
-                pygame.quit()
-                sys.exit()
-            <span class="hljs-keyword">elif</span> event.type == KEYDOWN <span class="hljs-keyword">and</span> (event.key == K_SPACE <span class="hljs-keyword">or</span> event.key == K_UP):
-                started = <span class="hljs-keyword">True</span>
-                sounds[<span class="hljs-string">'wing'</span>].play()
-                player.startJump()
-            <span class="hljs-keyword">elif</span> event.type == MOUSEBUTTONDOWN:
-                started = <span class="hljs-keyword">True</span>
-                sounds[<span class="hljs-string">'wing'</span>].play()
-                player.startJump()
-
-        pygame.display.update()
-        fpsClock.tick(<span class="hljs-number">60</span>)
-    sleep(<span class="hljs-number">3</span>)
-</code>
-</pre>
-          </p>
-          
         </article>
       </div>
     </div>
     <footer>
       <div class="owner">
       <p><a href="https://github.com/arrowbrave" class="avatar"><img src="https://avatars3.githubusercontent.com/u/7040508?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/arrowbrave">arrowbrave</a> maintains <a href="https://github.com/arrowbrave/Dot-is-not-a-Bird">Dot-is-not-a-bird</a></p>
-
-
       </div>
       <div class="creds">
         <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
@@ -262,7 +56,5 @@ yellow = pygame.Color(<span class="hljs-number">255</span>,<span class="hljs-num
     <a href="https://github.com/arrowbrave/Dot-is-not-a-Bird/tarball/master" class="tar">tar</a><a href="https://github.com/arrowbrave/Dot-is-not-a-Bird/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
     <p class="name"></p>
   </div>
-
-  
 </body>
 </html>
