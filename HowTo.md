@@ -33,7 +33,7 @@
 ## Recording a Video Demo
 
 1. Run your executable **MyPyGame.exe**
-2. Use a screen recorder. Install [TechSmith SnagIt for Chrome] (http://www.techsmith.com/snagit-google-chrome.html)
+2. Use a screen recorder. Install [TechSmith SnagIt for Chrome] (http://www.techsmith.com/snagit-google-chrome.html) or [here] (https://chrome.google.com/webstore/detail/techsmith-snagit-extensio/annopcfmbiofommjmcmcfmhklhgbhkce)
 3. Once installed on your Chrome Browser, click its icon *[blue square with 'S']* to start recording your screen.
 4. On the right side, choose **Screen**, then select the ```MyPyGame.exe``` window
 5. Start playing the game then click the **Stop Sharing** button.
